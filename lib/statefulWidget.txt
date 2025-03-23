@@ -1,0 +1,61 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int number = 0;
+
+  void tekanTombol() {
+    setState(() {
+      number += 1;
+    });
+  }
+
+  void kurang() {
+    setState(() {
+      if (number > 0) {
+        number -= 1;
+      } else {
+        number = 0;
+      }
+    });
+  }
+
+  void reset() {
+    setState(() {
+      number = 0;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Stateless dan Stateful Widget")),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(number.toString()),
+              ElevatedButton(
+                onPressed: tekanTombol,
+                child: Text('Tambah Bilangan'),
+              ),
+              ElevatedButton(onPressed: kurang, child: Text("Kurang")),
+              ElevatedButton(onPressed: reset, child: Text("Reset")),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

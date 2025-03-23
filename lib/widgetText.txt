@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Hello World')),
+        body: Center(
+          child: Container(
+            color: Colors.teal,
+            width: 150,
+            height: 150,
+            child: Text(
+              "Hello World",
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 3,
+              style: TextStyle(
+                color: Colors.deepOrange,
+                fontWeight: FontWeight.w700,
+                fontStyle: FontStyle.italic,
+                fontSize: 40,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// Widget Text
+// Text("", maxLines: 4) : digunakan untuk memberikan batasan baris dalam sebuah text
+// Text("", overflow: TextOverflow.clip) digunakan untuk menampilkan text yang terpotong
+// Text("", softWrap: false) digunakan untuk wrapping text, defaultnya adalah true
+// Text("", textAlign: TextAlign.center) digunakan untuk meratakan tulisan
+// Text("", style: TextStyle(color: Colors.white, fontWeight: FontWeight.w700, fontStyle: FontStyle.italic,)) digunakan untuk memberikan gaya pada tulisan tersebut
